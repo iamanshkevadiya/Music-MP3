@@ -725,9 +725,37 @@ h1 {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .music-player {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .player-content {
+        grid-template-columns: 250px 1fr;
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .music-player {
+        padding: 1rem;
+    }
+
     .player-content {
         grid-template-columns: 1fr;
+    }
+
+    .playlist-section {
+        padding: 1rem;
+    }
+
+    .playlist-container {
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 2rem;
     }
 
     .control-buttons {
@@ -737,10 +765,103 @@ h1 {
     .control-btn {
         width: 40px;
         height: 40px;
+        font-size: 0.9rem;
     }
 
     .play-btn {
         width: 50px;
         height: 50px;
+    }
+
+    .volume-control {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-container {
+        padding: 1rem;
+    }
+
+    .music-player {
+        width: 100%;
+    }
+
+    .upload-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .song-artwork {
+        width: 120px;
+        height: 120px;
+    }
+
+    .progress-section {
+        gap: 0.5rem;
+    }
+
+    .time-display {
+        font-size: 0.8rem;
+        min-width: 35px;
+    }
+
+    .volume-control {
+        margin-top: 1rem;
+    }
+
+    #song-list li {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .control-buttons {
+        gap: 0.8rem;
+    }
+
+    .control-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+
+    .play-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .song-artwork {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Portrait orientation for mobile devices */
+@media (max-height: 600px) and (orientation: landscape) {
+    .app-container {
+        padding: 0.5rem;
+    }
+
+    .music-player {
+        padding: 1rem;
+    }
+
+    .player-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .playlist-container {
+        height: 200px;
+    }
+
+    .song-artwork {
+        width: 80px;
+        height: 80px;
     }
 } 
