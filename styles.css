@@ -724,38 +724,128 @@ h1 {
     animation-play-state: running;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* Base Responsive Design */
+@media (max-width: 1400px) {
     .music-player {
         width: 95%;
-        padding: 1.5rem;
-    }
-
-    .player-content {
-        grid-template-columns: 250px 1fr;
-        gap: 1.5rem;
+        max-width: 1100px;
     }
 }
 
-@media (max-width: 768px) {
-    .music-player {
+@media (max-width: 1200px) {
+    .player-content {
+        grid-template-columns: 280px 1fr;
+        gap: 1.5rem;
+    }
+
+    .playlist-container {
+        height: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .app-container {
         padding: 1rem;
+        height: 100vh;
+    }
+
+    .music-player {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
     }
 
     .player-content {
         grid-template-columns: 1fr;
+        height: calc(100vh - 200px);
+        overflow-y: auto;
     }
 
     .playlist-section {
-        padding: 1rem;
+        height: 100%;
+        max-height: 500px;
     }
 
     .playlist-container {
-        height: 300px;
+        height: calc(100% - 50px);
+    }
+
+    .visualizer-container {
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: 0;
+        height: 100vh;
+    }
+
+    .music-player {
+        border-radius: 0;
+        padding: 1rem;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .player-header {
+        margin-bottom: 1rem;
+    }
+
+    .control-buttons {
+        gap: 1.2rem;
+        margin: 1.5rem 0;
+    }
+
+    .control-btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    .play-btn {
+        width: 55px;
+        height: 55px;
+    }
+
+    .song-artwork {
+        width: 130px;
+        height: 130px;
+        margin: 1rem auto;
+    }
+
+    .volume-control {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .music-player {
+        padding: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .upload-section {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .glow-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .song-artwork {
+        width: 110px;
+        height: 110px;
     }
 
     .control-buttons {
@@ -765,7 +855,7 @@ h1 {
     .control-btn {
         width: 40px;
         height: 40px;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .play-btn {
@@ -773,95 +863,114 @@ h1 {
         height: 50px;
     }
 
-    .volume-control {
-        padding: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .app-container {
-        padding: 1rem;
-    }
-
-    .music-player {
-        width: 100%;
-    }
-
-    .upload-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .song-artwork {
-        width: 120px;
-        height: 120px;
+    #song-list li {
+        padding: 10px;
+        margin-bottom: 5px;
     }
 
     .progress-section {
-        gap: 0.5rem;
+        margin: 0.8rem 0;
     }
 
     .time-display {
         font-size: 0.8rem;
-        min-width: 35px;
-    }
-
-    .volume-control {
-        margin-top: 1rem;
-    }
-
-    #song-list li {
-        padding: 8px 12px;
-        font-size: 0.9rem;
     }
 }
 
-@media (max-width: 360px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .control-buttons {
-        gap: 0.8rem;
-    }
-
-    .control-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 0.8rem;
-    }
-
-    .play-btn {
-        width: 45px;
-        height: 45px;
-    }
-
-    .song-artwork {
-        width: 100px;
-        height: 100px;
+/* Handle different aspect ratios */
+@media (max-aspect-ratio: 1/1) {
+    .player-content {
+        height: calc(100vh - 180px);
     }
 }
 
-/* Portrait orientation for mobile devices */
+/* Landscape mode for mobile devices */
 @media (max-height: 600px) and (orientation: landscape) {
-    .app-container {
-        padding: 0.5rem;
+    .music-player {
+        padding: 0.8rem;
     }
 
-    .music-player {
-        padding: 1rem;
+    .player-header {
+        margin-bottom: 0.5rem;
     }
 
     .player-content {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .playlist-container {
-        height: 200px;
+        gap: 1rem;
+        height: calc(100vh - 120px);
     }
 
     .song-artwork {
         width: 80px;
         height: 80px;
+        margin: 0.5rem auto;
+    }
+
+    .playlist-section {
+        max-height: none;
+        height: 100%;
+    }
+
+    .playlist-container {
+        height: calc(100% - 40px);
+    }
+
+    .control-buttons {
+        margin: 0.8rem 0;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* iPads and Tablets in portrait */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: portrait) {
+    .player-content {
+        height: calc(100vh - 250px);
+    }
+
+    .playlist-section {
+        max-height: none;
+    }
+
+    .song-artwork {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* iPads and Tablets in landscape */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (orientation: landscape) {
+    .player-content {
+        grid-template-columns: 300px 1fr;
+        height: calc(100vh - 150px);
+    }
+
+    .playlist-section {
+        height: 100%;
+    }
+}
+
+/* Ensure minimum height for very small devices */
+@media (max-height: 400px) {
+    .music-player {
+        min-height: 400px;
+        overflow-y: auto;
+    }
+}
+
+/* High-resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) {
+    .music-player {
+        border-width: 0.5px;
     }
 } 
